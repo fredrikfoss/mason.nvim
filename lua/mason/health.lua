@@ -92,14 +92,14 @@ end
 local function check_core_utils()
     report_start "mason.nvim [Core utils]"
 
-    check { name = "unzip", cmd = "unzip", args = { "-v" }, relaxed = true }
+    check { name = "unzip", cmd = "unzip", args = { "--help" }, relaxed = true }
 
     -- wget is used interchangeably with curl, but with lower priority, so we mark wget as relaxed
-    check { cmd = "wget", args = { "--version" }, name = "wget", relaxed = true }
+    check { cmd = "wget", args = { "--help" }, name = "wget", relaxed = true }
     check { cmd = "curl", args = { "--version" }, name = "curl" }
     check {
         cmd = "gzip",
-        args = { "--version" },
+        args = { "--help" },
         name = "gzip",
         use_stderr = platform.is.mac, -- Apple gzip prints version string to stderr
         relaxed = platform.is.win,
